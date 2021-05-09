@@ -3,18 +3,17 @@ using namespace std;
 
 class Stack_int
 {
-private:`
+private:
    struct StackNode {
-       int value;           // Value in the node
-       StackNode *next;     // Pointer to next node
+       int value;           
+       StackNode *next;     
    };
-
-   StackNode *top;          // Pointer to the stack top
+   StackNode *top;         
    int length;
 
 public:
-   Stack_int(){ top = NULL; length = 0; }    //Constructor
-   //~Stack_int();                            // Destructor
+   Stack_int(){ top = NULL; length = 0; }    
+   ~Stack_int();                            
 
    // Stack operations
    bool isEmpty() { return top == nullptr; }
@@ -45,13 +44,11 @@ bool Stack_int::push(int item)
    return true;
 }
 
-/**~*~*
+/**~*~
   Member function pop pops the value at the top
   of the stack off, and returns it
   Assume stack is not empty
 *~**/
-
-/* Define the pop function */
 void Stack_int::pop() {
 
   StackNode *temp;       //pointer to temp node
@@ -64,19 +61,16 @@ void Stack_int::pop() {
 
   top = top->next;       //Assign second node to top
 
-  //temp->next = NULL;     // Destroy connection between fist and second nodes
+  temp->next = NULL;     // Destroy connection between fist and second nodes
 
   delete temp;           // Release memory of temp node
 }
-
 
 
 int main() {
 
   Stack_int s;
   int item;
-
-  /* Write your code here to test the push and pop functions */
 
   while (true) {        //defining while loop
     cin >> item;        // taking input from the user
@@ -95,6 +89,5 @@ int main() {
       cout << endl;
     }
   }
-  
   return 0;
 }
